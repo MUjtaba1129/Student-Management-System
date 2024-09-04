@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stlye.css" />
+    <title>Student Management System</title>
+  </head>
+  <body>
+    <!-- App Title here -->
+    <section id="app-title">
+      <h1>
+        <strong><em>Student Management System</em></strong>
+      </h1>
+    </section>
+    <!-- App Search, Sort and Add Button here -->
+    <section id="searchAndAddButton">
+      <select id="sortDropdown" onchange="sortStudents(this.value)">
+        <option value="">Sort by</option>
+        <option value="name">Sort by Name</option>
+        <option value="studentID">Sort by ID</option>
+        <option value="class">Sort by Class</option>
+      </select>
+      <div>
+          <input
+            type="text"
+            id="searchInput"
+            oninput="searchStudents()"
+            placeholder="Search by name, ID, or class..."
+          />
+          <button class="searchBtn" onclick="">Search</button>
+      </div>
+      <button class="button ADbtn" onclick="openModal()">Add Student</button>
+    </section>
+    <!-- Add Srtudent Modal here -->
+    <section id="addStdModal">
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span onclick="closeModal()" style="float: right; cursor: pointer"
+            >&times;</span
+          >
+          <h2>Add Student</h2>
+          <form id="studentForm">
+            <label for="studentID">Student ID:</label><br />
+            <input type="text" id="studentID" name="studentID" required /><br />
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" required /><br />
+            <label for="fatherName">Father's Name:</label><br />
+            <input
+              type="text"
+              id="fatherName"
+              name="fatherName"
+              required
+            /><br />
+            <label for="class">Class:</label><br />
+            <input type="text" id="class" name="class" required /><br />
+            <label for="totalMarks">Total Marks:</label><br />
+            <input
+              type="text"
+              id="totalMarks"
+              name="totalMarks"
+              required
+            /><br />
+            <label for="obtainMarks">Obtain Marks:</label><br />
+            <input
+              type="text"
+              id="obtainMarks"
+              name="obtainMarks"
+              required
+            /><br /><br />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Std Data Table -->
+    <section id="stdDataTable">
+      <table id="studentTable" class="table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Father's Name</th>
+            <th>Class</th>
+            <th>Total Marks</th>
+            <th>Obtain Marks</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="studentData"></tbody>
+      </table>
+    </section>
+    <section id="pagination">
+        <button class="searchBtn pg" onclick="">Prev</button>
+        <button class="searchBtn pg" onclick="">Next</button>
+    </section>
+    <script src="form.js"></script>
+  </body>
+</html>
